@@ -9,17 +9,24 @@ let passwordError = document.getElementById("passwordError");
 let emailError = document.getElementById("emailError");
 let checkboxError = document.getElementById("checkboxError");
 
-function clearError(param){
+function clearError(param) {
   param.innerHTML = "";
 }
 
-form1DOM.addEventListener('submit', (e) => {
+form1DOM.addEventListener("submit", (e) => {
   e.preventDefault();
 
   checkInputs();
 });
 
-function checkInputs(){
+function checkInputs() {
+  if (passwordDOM.value === "" || passwordDOM.value === null) {
+    passwordError.innerHTML = "Lütfen Bu Alanı Doldurun.";
+  } else if (passwordDOM.value.length < 8) {
+    passwordError.innerHTML = "Şifre en az 8 karakter olmalı.";
+  } else {
+    passwordError.innerHTML = "";
+  }
 
   if (nameDOM.value === "" || nameDOM.value === null) {
     nameError.innerHTML = "Lütfen Bu Alanı Doldurun.";
@@ -27,14 +34,10 @@ function checkInputs(){
     nameError.innerHTML = "";
   }
 
-  if ( passwordDOM.value === "" || passwordDOM.value === null) {
-    passwordError.innerHTML = "Lütfen Bu Alanı Doldurun.";
-  } else {
-    passwordError.innerHTML = "";
-  }
-
   if (emailDOM.value === "" || emailDOM.value === null) {
     emailError.innerHTML = "Lütfen Bu Alanı Doldurun.";
+  } else if (!emailDOM.value.includes("@")) {
+    emailError.innerHTML = "Lütfen geçerli bir mail adresi yazın.";
   } else {
     emailError.innerHTML = "";
   }
@@ -45,4 +48,3 @@ function checkInputs(){
     checkboxError.innerHTML = "";
   }
 }
-
