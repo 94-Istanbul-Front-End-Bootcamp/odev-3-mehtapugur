@@ -15,18 +15,25 @@
         <div class="form-body">
             <div>
                 <label for="userName">Kullanıcı Adı :</label>
-                <input type="text" placeholder="Kullanıcı Adı" required>
+                <input id="userName" type="text" name="userName" onfocus="clearError(nameError)"
+                    placeholder="Kullanıcı Adı" required>
+                <small id="nameError"></small>
             </div>
             <div>
                 <label for="password">Parola :</label>
-                <input type="password" placeholder="Şifre" required>
+                <input id="password" type="password" name="password" placeholder="Şifre"
+                    onfocus="clearError(passwordError)" required>
+                <small id="passwordError"></small>
             </div>
             <div>
                 <label for="eMail">E-Mail :</label>
-                <input type="email" placeholder="E-mail" required>
+                <input id="eMail" type="email" name="eMail" onfocus="clearError(emailError)" placeholder="E-mail"
+                    required>
+                <small id="emailError"></small>
             </div>
             <div>
-                <input type="checkbox" required>
+                <input type="checkbox" id="checkbox" onfocus="clearError(checkboxError)" required><small
+                    id="checkboxError"></small>
             </div>
             <div>
                 <button>Gönder</button>
